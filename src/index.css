@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&italic&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  fontfamily: "Rubik, sans-serif";
+}
+
+*,
+html {
+  scroll-behavior: smooth !important;
+}
