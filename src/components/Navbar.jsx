@@ -90,12 +90,15 @@ const Navbar = () => {
           <span className="hover:scale-110">
             <IoPerson />
           </span>
-          <span className="relative flex items-center hover:scale-110">
+          <Link
+            to={"/cart"}
+            className="relative flex items-center hover:scale-110"
+          >
             <FaBagShopping />
             <p className="px-1 text-[10px] bg-white rounded-full font-[2px] text-primary absolute -right-2 top-3">
               {state.cart.length}
             </p>
-          </span>
+          </Link>
         </div>
       </div>
     </div>

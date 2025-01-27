@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Footer, Navbar } from "../components/index";
 import images from "../assets/index";
 import { useCart } from "../components/fragments/CartContext";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { state, dispatch } = useCart();
+  // const [isDisabled, setIsDisable] = useState(false);
 
   const handleIncrement = (id) => {
     dispatch({ type: "INCREMENT", payload: { id } });
@@ -28,6 +29,9 @@ const Cart = () => {
       .toFixed(2);
   };
 
+  // const handleClick = () => {
+  //   console.log(state.cart);
+  // };
   return (
     <div>
       <Navbar />
@@ -44,9 +48,12 @@ const Cart = () => {
             </div>
 
             <div className="flex flex-col justify-between items-end w-full md:w-1/2 gap-2 md:gap-0">
-              <div className="underline cursor-pointer text-[14px] md:text-[16px]">
+              <Link
+                to={"/productPage"}
+                className="underline cursor-pointer text-[14px] md:text-[16px]"
+              >
                 Continue Shopping
-              </div>
+              </Link>
               <p className="font-normal text-slate-500 text-[14px] md:text-[15px]">
                 Total
               </p>
@@ -92,9 +99,12 @@ const Cart = () => {
                   +
                 </button>
               </div>
-              <Link to={"/Payment"} onClick={() => handleRemove(item.id)}>
+              <div
+                onClick={() => handleRemove(item.id)}
+                className="font-semibold cursor-pointer"
+              >
                 Remove
-              </Link>
+              </div>
               <div className="flex items-center">
                 <p className="font-bold">${getTotalPrice()}</p>
               </div>
@@ -108,9 +118,9 @@ const Cart = () => {
         <div className="flex flex-col md:flex-row justify-between gap-5">
           <div></div>
           <div className="flex flex-col justify-end items-end w-full md:w-auto">
-            <div className="flex justify-between md:gap-10 py-3">
+            <div className="flex justify-between md:gap-10 gap-5 py-3">
               <p className="font-bold">Estimated total</p>
-              <p className="font-extralight">${getTotalPrice()}USD</p>
+              <p className="font-extralight ">${getTotalPrice()}USD</p>
             </div>
             <p className="italic py-5 font-extralight text-center md:text-right">
               Taxes, discounts and shipping calculated at checkout.

@@ -141,7 +141,7 @@ const MainPage = () => {
         </section>
         <section className="min-h-screen p-10 md:p-20 bg-secondary">
           <div className="flex flex-col gap-10 items-cente lg:flex-row lg:gap-20">
-            <div className="w-full text-center max-h-fit lg:text-left lg:w-1/2 lg:mt-60">
+            <div className="w-full text-center max-h-fit lg:text-left lg:w-1/2 lg:mt-40">
               <h1 className="font-bold leading-[3rem] text-[30px] md:text-[40px] my-2">
                 Winter Essential Sweater for Pets
               </h1>

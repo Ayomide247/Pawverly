@@ -9,7 +9,7 @@ const Dropdown = () => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative text-left flex flex-col  item-center  ">
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
@@ -33,23 +33,23 @@ const Dropdown = () => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-          <div className="py-1">
+        <div className="absolute right-0 mt-8 px-10 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ">
+          <div className="flex flex-col items-center py-1 ">
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b w-full"
             >
               8
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  border-b"
             >
               5
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  border-b"
             >
               3
             </a>
