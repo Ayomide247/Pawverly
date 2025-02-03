@@ -13,7 +13,8 @@ import {
 import images from "../assets/index";
 import { product } from "../Utils/data";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import { slideIn } from "../Utils/motion";
 const ProductPage = () => {
   const navigate = useNavigate();
   const { state, dispatch } = useCart();
@@ -49,7 +50,12 @@ const ProductPage = () => {
       <div className="mt-[77px]">
         {/* <SliderComponent /> */}
         <section className="flex flex-col justify-between gap-10 px-5 lg:flex-row lg:px-20">
-          <div className="flex flex-col items-center justify-center w-full py-5 lg:w-1/2">
+          <motion.div
+            variants={slideIn("right", "tween", 0.2, 1)}
+            initial="hidden"
+            animate="show"
+            className="flex flex-col items-center justify-center w-full py-5 lg:w-1/2"
+          >
             <img
               src={singleItem?.img}
               alt="Main Product"
@@ -91,9 +97,14 @@ const ProductPage = () => {
                 </button>
               </div>
             </div> */}
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col items-start w-full gap-8 py-2 font-bold lg:w-1/2">
+          <motion.div
+            variants={slideIn("left", "tween", 0.2, 1)}
+            initial="hidden"
+            animate="show"
+            className="flex flex-col items-start w-full gap-8 py-2 font-bold lg:w-1/2"
+          >
             <h1 className="font-bold text-[24px] md:text-[30px]">
               {singleItem?.title}
             </h1>
@@ -123,7 +134,7 @@ const ProductPage = () => {
                 Add To Cart
               </button>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section className="flex flex-col items-center py-20 bg-secondary">

@@ -4,12 +4,28 @@ import { SiAmericanexpress } from "react-icons/si";
 import { FaApplePay } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa";
 import images from "../assets/index";
+import { motion } from "framer-motion";
+import { slideIn } from "../Utils/motion";
 
 const Footer = () => {
   return (
     <div>
-      <img src={images[15]} alt="" className="w-full" />
-      <footer className="flex flex-col items-center pt-20 pb-3 bg-primary text-[#ffffff]">
+      <motion.img
+        variants={slideIn("right", "tween", 0.2, 1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        src={images[15]}
+        alt=""
+        className="w-full"
+      />
+      <motion.footer
+        variants={slideIn("left", "tween", 0.2, 1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex flex-col items-center pt-20 pb-3 bg-primary text-[#ffffff]"
+      >
         {/* Newsletter section */}
         <div className="flex flex-col items-center px-4 text-center md:px-8">
           <h1 className="font-bold text-[30px] my-2">
@@ -48,7 +64,7 @@ const Footer = () => {
             <p className="mx-2">. Refund Policy</p>
           </div>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   );
 };

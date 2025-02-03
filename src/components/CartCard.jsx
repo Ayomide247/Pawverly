@@ -1,10 +1,12 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { IoIosCheckmark } from "react-icons/io";
 import images from "../assets/index";
 import { product } from "../Utils/data";
 import { useCart } from "../components/fragments/CartContext";
 import { useNavigate } from "react-router-dom";
-
+import { textVariant } from "../Utils/motion";
+textVariant;
 const CartCard = () => {
   const navigate = useNavigate();
   const { dispatch } = useCart();
@@ -17,7 +19,12 @@ const CartCard = () => {
   };
 
   return (
-    <div>
+    <motion.div
+      variants={textVariant()}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
       {product.map((item) => {
         const { title, img, details, price, oldprice, id } = item;
         return (
@@ -67,7 +74,7 @@ const CartCard = () => {
           </div>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 

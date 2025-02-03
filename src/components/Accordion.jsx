@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 import { accordion } from "../Utils/data";
+import { motion } from "framer-motion";
+import { fadeIn } from "../Utils/motion";
 
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -13,7 +15,14 @@ const Accordion = () => {
     <div className="w-full">
       <ul className="flex flex-col w-full font-bold">
         {accordion.map((accord, index) => (
-          <li key={index} className="w-full py- mb-4 overflow-hidden">
+          <motion.li
+            variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            key={index}
+            className="w-full py- mb-4 overflow-hidden"
+          >
             <h1
               onClick={() => handleClick(index)}
               className="flex items-center justify-between p-4 bg-white text-[18px] md:text-[20px] shadow cursor-pointer"
@@ -33,7 +42,7 @@ const Accordion = () => {
             >
               {accord.details}
             </p>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>

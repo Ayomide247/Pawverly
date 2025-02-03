@@ -58,7 +58,7 @@ const Navbar = () => {
               : "hidden"
           }`}
         >
-          <div className="flex flex-col gap-5 text-center lg:flex-row lg:items-center lg:gap-10 lg:text-left">
+          <div className="flex flex-col gap-5 text-center lg:flex-row lg:items-center lg:gap-10 lg:text-left font-semibold">
             <Link
               to="/"
               className="transition-colors cursor-pointer hover:underline hover:duration-500"

@@ -1,11 +1,16 @@
 import React from "react";
 import { cardDetails } from "../Utils/data";
-
+import { motion } from "framer-motion";
+import { fadeIn, slideIn, textVariant } from "../Utils/motion";
 const Card = () => {
   return (
     <div className="flex flex-wrap justify-center gap-10 px-5 my-5">
       {cardDetails.map(({ img, title, about, id }) => (
-        <div
+        <motion.div
+          variants={fadeIn("right", "spring", id * 0.5, 0.75)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           key={id}
           className="bg-primary w-full sm:w-[300px] md:w-[350px] pb-7 text-[#ffffff] rounded-xl flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-xl duration-300 cursor-pointer"
         >
@@ -20,7 +25,7 @@ const Card = () => {
           <p className="text-center text-[14px] sm:text-[15px] px-5 h-20">
             {about}
           </p>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
