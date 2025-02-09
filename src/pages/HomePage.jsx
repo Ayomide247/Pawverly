@@ -26,9 +26,14 @@ const MainPage = () => {
         <SliderComponent />
         <section className="flex flex-col-reverse items-center justify-between px-5 py-12 lg:flex-row md:px-10 lg:px-20 bg-secondary">
           <motion.div
-            variants={slideIn("left", "bounce", 0.5, 1)}
             initial="hidden"
-            animate="show"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1 }}
+            variants={{
+              hidden: { opacity: 0, x: -200 },
+              visible: { opacity: 1, x: 0 },
+            }}
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
             <h1 className="font-semibold text-[28px] md:text-[36px] lg:text-[40px] w-full lg:w-[70%]">
@@ -52,9 +57,14 @@ const MainPage = () => {
           </motion.div>
 
           <motion.div
-            variants={slideIn("right", "tween", 0.5, 1)}
             initial="hidden"
-            animate="show"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1 }}
+            variants={{
+              hidden: { opacity: 0, y: -200 },
+              visible: { opacity: 1, y: 0 },
+            }}
             className="flex justify-center w-full py-5 lg:justify-end lg:w-auto lg:py-0"
           >
             <img
@@ -67,10 +77,14 @@ const MainPage = () => {
         <div className="p-5 bg-primary"></div>
         <section className="py-20 bg-[#ffffff] lg:px-20 px-2">
           <motion.div
-            variants={textVariant()}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
             className="flex flex-col items-center px-5 text-center"
           >
             <h1 className="font-bold text-[30px] sm:text-[35px] lg:text-[40px]">
@@ -84,20 +98,28 @@ const MainPage = () => {
 
           <div className="flex flex-col items-center justify-center gap-5 py-10 lg:px-5 lg:flex-row sm:px-5 lg:gap-0">
             <motion.img
-              variants={slideIn("right", "bounce", 0.25, 1)}
               initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 2 }}
+              variants={{
+                hidden: { opacity: 0, x: 300 },
+                visible: { opacity: 1, x: 0 },
+              }}
               src={images[0]}
               alt="Pet Sweater"
               className="w-full sm:w-[300px] md:w-[350px] lg:w-[400px] rounded-lg lg:rounded-l-[15px]"
             />
 
             <motion.div
-              variants={slideIn("left", "bounce", 0.25, 1)}
               initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 2 }}
+              variants={{
+                hidden: { opacity: 0, x: -300 },
+                visible: { opacity: 1, x: 0 },
+              }}
               className="text-[#ffffff] bg-primary py-10 sm:py-[80px] px-5 sm:px-8 md:px-10  lg:rounded-r-[15px]"
             >
               <h1 className="font-bold text-[25px] sm:text-[30px] lg:text-[40px]">
