@@ -20,7 +20,7 @@ import { fadeIn, slideIn, textVariant } from "../Utils/motion";
 
 const MainPage = () => {
   return (
-    <main className="w-screen h-screen overflow-x-hidden">
+    <main className="w-screen overflow-x-hidden">
       <Navbar />
       <div className="mt-[77px]">
         <SliderComponent />

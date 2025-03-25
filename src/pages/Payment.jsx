@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { PaystackButton } from "react-paystack";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../components/fragments/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Payment = () => {
   const { getTotalPrice } = useCart();
@@ -10,8 +11,20 @@ const Payment = () => {
   const publicKey = "pk_test_30935254e277d16e13b3b46de0616a73647b8f34";
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handleSuccess = () => {
+    toast.success("Thanks for Your Patronage!");
+    localStorage.clear();
+    setTimeout(() => {
+      navigate("/");
+      window.location.reload();
+    }, 2000); // Delay navigation to allow toast to show
+  };
+
+  const handleClose = () => {
+    toast.warn("Are you sure you want to close?");
+  };
 
   const componentProps = {
     email,
@@ -22,18 +35,9 @@ const Payment = () => {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () => (
-      alert("Thanks for Your Patronage"),
-      localStorage.clear(),
-      navigate("/"),
-      window.location.reload()
-    ),
-    onClose: () => alert("Are you sure you want to close?"),
+    onSuccess: handleSuccess,
+    onClose: handleClose,
   };
-
-//   console.log(getTotalPrice());
-
-  const handleClick = () => {};
 
   return (
     <div className="px-4 mt-52 font-semibold">
@@ -61,7 +65,6 @@ const Payment = () => {
           placeholder="Enter Amount"
           className="block w-full px-4 py-2 mb-4 rounded-md border border-primary focus:outline-none"
           disabled
-          //   onChange={(e) => setAmount(e.target.value)}
         />
         <input
           type="number"
@@ -73,9 +76,9 @@ const Payment = () => {
         <PaystackButton
           className="block w-full px-4 py-2 mb-4 rounded-md bg-[#1369A1] text-white"
           {...componentProps}
-          onClick={handleClick()}
         />
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

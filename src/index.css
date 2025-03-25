@@ -6,6 +6,23 @@
 
 body {
   fontfamily: "Rubik, sans-serif";
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: #212121;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  -webkit-box-shadow: inset 0 0 6px #02191d;
+  background-color: transparent;
 }
 
 *,
