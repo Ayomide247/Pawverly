@@ -20,13 +20,13 @@ import { fadeIn, slideIn, textVariant } from "../Utils/motion";
 
 const MainPage = () => {
   return (
-    <main className="w-screen overflow-x-hidden">
+    <main className="w-screen h-screen  overflow-x-hidden">
       <Navbar />
       <div className="mt-[77px]">
         <SliderComponent />
         <section className="flex flex-col-reverse items-center justify-between px-5 py-12 lg:flex-row md:px-10 lg:px-20 bg-secondary">
           <motion.div
-            initial="hidden"
+            // initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1 }}
@@ -57,7 +57,7 @@ const MainPage = () => {
           </motion.div>
 
           <motion.div
-            initial="hidden"
+            // initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1 }}
@@ -77,7 +77,7 @@ const MainPage = () => {
         <div className="p-5 bg-primary"></div>
         <section className="py-20 bg-[#ffffff] lg:px-20 px-2">
           <motion.div
-            initial="hidden"
+            // initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1 }}
@@ -98,7 +98,7 @@ const MainPage = () => {
 
           <div className="flex flex-col items-center justify-center gap-5 py-10 lg:px-5 lg:flex-row sm:px-5 lg:gap-0">
             <motion.img
-              initial="hidden"
+              // initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 2 }}
@@ -112,7 +112,7 @@ const MainPage = () => {
             />
 
             <motion.div
-              initial="hidden"
+              // initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 2 }}
@@ -156,7 +156,7 @@ const MainPage = () => {
 
             <motion.div
               variants={slideIn("left", "tween", 0.2, 1)}
-              initial="hidden"
+              // initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
             >
@@ -180,7 +180,7 @@ const MainPage = () => {
           >
             <motion.div
               variants={slideIn("right", "tween", 0.5, 1)}
-              initial="hidden"
+              // initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               className="text-[#ffffff] bg-primary p-5 sm:py-10 sm:px-8 md:py-[114px] md:px-10 rounded-t-[15px] lg:rounded-l-[15px] lg:rounded-tr-none flex flex-col items-start"
@@ -206,18 +206,17 @@ const MainPage = () => {
             />
           </motion.div>
         </section>
-        <motion.section className="p-5 lg:p-20 bg-secondary">
+        <section className="p-5 lg:p-20 bg-secondary">
           <div>
             <DescriptionCard />
           </div>
-        </motion.section>
+        </section>
         <motion.section
           id="product"
           className="flex flex-col items-center px-5 py-20 md:px-20"
         >
-          {/* <Link to="/productPage"> */}
           <CartCard />
-          {/* </Link> */}
+
           <CountDown />
         </motion.section>
         <section className="min-h-screen p-10 md:p-20 bg-secondary">

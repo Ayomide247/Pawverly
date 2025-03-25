@@ -39,7 +39,7 @@ const CartCard = () => {
   };
 
   return (
-    <motion.div
+    <div
       variants={{
         hidden: { opacity: 0, x: 50 },
         show: {
@@ -153,7 +153,7 @@ const CartCard = () => {
           </div>
         );
       })}
-    </motion.div>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const Payment = () => {
     setTimeout(() => {
       navigate("/");
       window.location.reload();
-    }, 2000); // Delay navigation to allow toast to show
+    }, 2000); 
   };
 
   const handleClose = () => {

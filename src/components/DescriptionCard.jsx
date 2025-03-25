@@ -22,7 +22,7 @@ const DescriptionCard = () => {
     show: { opacity: 1, y: 0 },
   };
   return (
-    <motion.div
+    <div
       variants={gridContainerVariants}
       initial="hidden"
       whileInView="show"
@@ -40,7 +40,7 @@ const DescriptionCard = () => {
           <p className="font-medium">{details}</p>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
